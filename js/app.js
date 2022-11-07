@@ -10,11 +10,32 @@ const now = new Date();
 newYear.innerHTML = now.getFullYear() + 1;
 
 const countToDate = new Date(now.getFullYear() + 1, 0, 1).getTime();
+const solarDate = moment()
+  .year(2023)
+  .month(0)
+  .date(1)
+  .solar()
+  .format("YYYY-MM-DD");
+const countToDateLunar = new Date(solarDate).getTime();
+
+var lastDayOfYear = countToDate;
+
+document.addEventListener("DOMContentLoaded", function () {
+  var checkbox = document.querySelector('input[type="checkbox"]');
+
+  checkbox.addEventListener("change", function () {
+    if (checkbox.checked) {
+      lastDayOfYear = countToDateLunar;
+    } else {
+      lastDayOfYear = countToDate;
+    }
+  });
+});
 
 const countdown = () => {
   const now = new Date().getTime();
 
-  const distance = countToDate - now;
+  const distance = lastDayOfYear - now;
 
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor(
