@@ -2,10 +2,6 @@
 
     Responsive New Year Countdown With Fireworks Using HTML CSS JavaScript
 
-# Video tutorial
-
-    https://youtu.be/Nb9beB3tBtE
-
 # Resource
 
     Google font: https://fonts.google.com/
